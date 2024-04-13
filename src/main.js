@@ -7,8 +7,14 @@ import { makeRequest } from './js/pixabay-api';
 const searchEl = document.querySelector('form');
 const ulEl = document.querySelector('.gallery');
 const loaderEl = document.querySelector('.loader');
-loaderEl.style.display = 'none';
+const btnMore = document.querySelector('.btn');
 searchEl.addEventListener('submit', handleSubmit);
+
+let inputEl = "";
+
+btnMore.style.display = 'none';
+loaderEl.style.display = 'none';
+
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -56,3 +62,6 @@ function handleSubmit(event) {
     .catch(error => console.log('catch', error))
     .finally(() => form.reset());
 }
+
+
+btnMore.addEventListener('click', handleClick);
